@@ -14,17 +14,12 @@
     </div>-->
 
     <div class="search" onkeyup="{! c.handleKeyUp }">
-        <lightning:input
-                aura:id="enter-search"
-                name="enter-search"
-                type="search"
-                variant="label-hidden"
-        />
+        <lightning:input aura:id="enter-search" name="enter-search" type="search" variant="label-hidden" />
     </div>
 
     <div class="formSerie">
         <form class="series-form" onsubmit="{!c.addSerie}">
-            <input type="hidden" value="{!v.series.Name}" class="serie-name" />
+            <input type="hidden" value="{!v.serie.Name}" class="serie-name" />
             <lightning:button label="Add new" iconName="utility:add" iconPosition="left" variant="brand" onclick="{! c.addNew }"/>
         </form>
     </div>
