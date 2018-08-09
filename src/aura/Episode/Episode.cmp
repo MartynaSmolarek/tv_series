@@ -1,0 +1,10 @@
+<!--
+ - Created by martyna.smolarek on 09.08.2018.
+ -->
+
+<aura:component description="Episode">
+
+    <aura:attribute name="hideEpisode" type="Boolean" default="true" access="public"/>
+
+<p>Strona epizody</p>
+</aura:component>
