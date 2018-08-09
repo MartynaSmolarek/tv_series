@@ -1,0 +1,27 @@
+/**
+ * Created by martyna.smolarek on 07.08.2018.
+ */
+.THIS {
+
+}
+
+
+/*****  nagłówek *******/
+.THIS .header {
+    margin-left: 2%;
+    width: 10%;
+    height: 10%;
+}
+.THIS .search {
+    width: 50%;
+    margin-left: 10%;
+    margin-top: 2%;
+}
+.THIS .formSerie {
+    margin-left: 10%;
+    margin-top: 2%;
+}
+
+/*****  a tu już lista *******/
+
+
