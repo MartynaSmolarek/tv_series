@@ -1,0 +1,62 @@
+<!--
+ - Created by martyna.smolarek on 08.08.2018.
+ -->
+
+<aura:component implements="flexipage:availableForAllPageTypes" access="global" controller="SerieControllerApex">
+
+    <aura:attribute name="hideSerie" type="Boolean" default="true" access="public"/>
+    <aura:attribute name="hideSeason" type="Boolean" default="true" access="public"/>
+    <aura:attribute name="hideEpisode" type="Boolean" default="true" access="public"/>
+
+    <aura:attribute name="serie" type="TV_Serie__c" />
+
+
+    <!--<aura:attribute name="series" type="List" />-->
+
+    <aura:handler name="init" value="{!this}" action="{!c.getName}" />
+
+    <!-- tu jest 'strona' dla konkretnego serialu, musze pobrac opis, nazwe, trailer -->
+    <!-- robie odnosnik do sezonu, a sezony robie jako osobny komponent -->
+    <!-- w komponencie sezony robie odnosnik do odcinkow, a odcinki jako osobny komponent -->
+
+
+
+    <div class="nameSerie">
+            <p>
+                Name:
+                <!-- tu odwolac sie do tego name z allAboutTvSerieController.js -->
+                {!v.serie.Name}
+
+            </p>
+        <div>
+            <lightning:button variant="brand" label="Modify" onclick="{!c.modify}"> Modify </lightning:button>
+        </div>
+    </div>
+    <div class="logoSerie">
+        <p>
+            Logo:
+
+        </p>
+    </div>
+    <div class="trailerSerie">
+            <p>
+                Trailer:
+            </p>
+    </div>
+
+    <div class="seasonSerie">
+    <lightning:button variant="base" label="Go seasons" onclick="{!c.viewSeasons}" >
+        Seasons
+    </lightning:button>
+</div>
+
+
+
+    <aura:if isTrue="{!!v.hideSeason}">
+            <c:Season hideSeason="{!v.hideSeason}"/>
+                <aura:if isTrue="{!v.hideEpisode}">
+                    <c:Episode hideEpisode="{!v.hideEpisode}"/>
+                </aura:if>
+    </aura:if>
+
+</aura:component>
