@@ -1,0 +1,32 @@
+<!--
+ - Created by martyna.smolarek on 08.08.2018.
+ -->
+
+<aura:component implements="flexipage:availableForAllPageTypes" access="global" >
+
+    <!--<aura:attribute name="searchKey" type="String"/>
+    <aura:handler event="aura:locationChange" action="{!c.locationChange}"/>
+
+    <div class="search-wrapper">
+        <input type="text" class="form-control" onkeyup="{!c.searchKeyChange}" value="{!v.searchKey}"
+               placeholder="Search a TV Serie"/>
+        <button class="btn btn-link" onclick="{!c.clearText}"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+    </div>-->
+
+    <div class="search" onkeyup="{! c.handleKeyUp }">
+        <lightning:input
+                aura:id="enter-search"
+                name="enter-search"
+                type="search"
+                variant="label-hidden"
+        />
+    </div>
+
+    <div class="formSerie">
+        <form class="series-form" onsubmit="{!c.addSerie}">
+            <input type="hidden" value="{!v.series.Name}" class="serie-name" />
+            <lightning:button label="Add new" iconName="utility:add" iconPosition="left" variant="brand" onclick="{! c.addNew }"/>
+        </form>
+    </div>
+
+</aura:component>
