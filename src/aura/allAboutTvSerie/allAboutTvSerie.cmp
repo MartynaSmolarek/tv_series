@@ -6,8 +6,10 @@
 
     <aura:attribute name="hideAll" type="Boolean" default="false" access="public"/>
     <aura:attribute name="hideSerie" type="Boolean" default="true" access="public"/>
-
     <aura:attribute name="serie" type="TV_Serie__c" />
+
+    <aura:registerEvent name="cmpEvent" type="c:attemptGetName"/>
+
 
     <table class="slds-table slds-table_bordered slds-table_striped slds-table_cell-buffer slds-table_fixed-layout">
 
@@ -16,7 +18,7 @@
                 <td>
                     <div class="slds-truncate" title="{!v.serie.Name}">
                         <!-- jesli jest klikniety przycisk to ukryj cala sekcje i pokaz komponent dla jednego konkretnego serialu -->
-                        <lightning:button  variant="base" value="{!v.serie.Name}" label="Go to" onclick="{!c.viewSerie }" >
+                        <lightning:button  variant="base" value="{!v.serie.Name}" label="Go to" onclick="{!c.viewSerieEvent }" >
                                 {!v.serie.Name}
                         </lightning:button>
                     </div>
