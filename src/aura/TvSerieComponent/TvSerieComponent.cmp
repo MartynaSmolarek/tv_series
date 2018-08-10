@@ -10,9 +10,7 @@
     <aura:attribute name="hideAll" type="Boolean" default="false" access="public"/>
     <aura:attribute name="hideSerie" type="Boolean" default="true" access="public"/>
 
-
-
-    <!-- *************************************** naglowek *************************************** -->
+<!-- *************************************** naglowek *************************************** -->
 
      <div class="list">
         List of TV Series
