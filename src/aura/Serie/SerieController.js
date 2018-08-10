@@ -16,16 +16,16 @@
                 }
             });
             $A.enqueueAction(action);*/
-
-
-
     },
+
 
     viewSeasons: function (component, event, helper) {
         component.set("v.hideSeason", false);
+        helper.getSeason(component);
     },
 
     modify: function (component, event, helper) {
         console.log("modyfikuj");
+
     }
 })
