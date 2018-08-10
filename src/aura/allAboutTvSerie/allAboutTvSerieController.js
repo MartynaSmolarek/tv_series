@@ -3,17 +3,14 @@
  */
 ({
      // przycisk do otworzenia strony konkretnego serialu
-    viewSerie : function (component, event, helper) {
+    viewSerieEvent : function (component, event, helper) {
         // tu ukrywa mi sie sekcja pierwsza i otwiera nowa
-        console.log("dfdf");
         component.set("v.hideSerie", false);
 
-        /*var name = event.getSource().get("v.serie.Name");
-        console.log(name);*/
-        //component.get("v.serie.Name");
-
-        var name = event.getSource().get("v.value");
-                console.log(name);
+        var cmpEvent = component.getEvent("cmpEvent");
+        // tu musi byc co robi event?
+        cmpEvent.setParams({"infoName" : component.get("v.serie")});
+        cmpEvent.fire();
     },
 
     // przycisk do usuwania tv serie
