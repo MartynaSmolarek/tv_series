@@ -5,6 +5,19 @@
 <aura:component description="Episode">
 
     <aura:attribute name="hideEpisode" type="Boolean" default="true" access="public"/>
+    <aura:attribute name="numOfSeason" type="Season__c"/>
+    <aura:attribute name="numOfEpisodes" type="Episode__c"/>
 
 <p>Strona epizody</p>
+
+    <div class="episodeSerie">
+        <!-- tu iteracja po wszystkich numOfSeason zeby miec tyle przyciskow do odcinkow ile sezonow-->
+        <aura:iteration items="{!v.numOfEpisodes}" var="numE" >
+            <lightning:button variant="base" onclick="{!c.viewEpisode}" >
+                 {!numE.Name}
+            </lightning:button><br/>
+        </aura:iteration>
+
+    </div>
+
 </aura:component>
