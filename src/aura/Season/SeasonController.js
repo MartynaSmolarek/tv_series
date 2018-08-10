@@ -4,5 +4,9 @@
 ({
     viewEpisodes: function(component, event, helper) {
         component.set("v.hideEpisode", false);
-    }
+        console.log ("wyswietlam epizody?");
+    },
+
+
+
 })
