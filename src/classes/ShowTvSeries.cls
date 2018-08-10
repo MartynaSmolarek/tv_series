@@ -8,7 +8,7 @@ public with sharing class ShowTvSeries {
     public static List <Tv_Serie__c> getMyObjects () {
 
         List<TV_Serie__c> seriesList = new List <TV_Serie__c> ();
-        seriesList = [SELECT Name, Description__c FROM Tv_Serie__c];
+        seriesList = [SELECT Name, Description__c, Trailer__c, Rate__c, Photo_URL__c, Photo_URL_Formula__c, CountOfMarks__c, Marks__c FROM Tv_Serie__c];
 
 
         if (seriesList == null)
@@ -18,4 +18,6 @@ public with sharing class ShowTvSeries {
 
         return seriesList;
     }
+
+
 }
