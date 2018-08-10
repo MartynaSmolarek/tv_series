@@ -15,4 +15,6 @@ public with sharing class SerieControllerApex {
 
         return about;
     }
+
+
 }
