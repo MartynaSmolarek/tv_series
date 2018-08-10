@@ -2,18 +2,25 @@
  - Created by martyna.smolarek on 08.08.2018.
  -->
 
-<aura:component description="Season">
+<aura:component implements="flexipage:availableForAllPageTypes" access="global" controller="EpisodeControllerApex">
     <aura:attribute name="hideSeason" type="Boolean" default="true" access="public"/>
     <aura:attribute name="hideEpisode" type="Boolean" default="true" access="public"/>
 
+    <aura:attribute name="serie" type="TV_Serie__c" />
 
-    <div>strona sezon</div>
+    <aura:attribute name="numOfSeason" type="List"/>
+    <aura:attribute name="oneSeason" type="Season__c"/>
+    <!--<aura:handler name="getSeason" value="{!this}" action="{!c.seasonsGet}"/>-->
 
 
-    <div class="episodeSerie">
-        <lightning:button variant="base" label="Go seasons" onclick="{!c.viewEpisodes}" >
-            Episodes
-        </lightning:button>
+    <div class="seasonSerie">
+        <!-- tu iteracja po wszystkich numOfSeason zeby miec tyle przyciskow do odcinkow ile sezonow-->
+        <aura:iteration items="{!v.numOfSeason}" var="num" >
+            <lightning:button iconName="utility:down" iconPosition="right" variant="x-small" onclick="{!c.viewEpisodes}" >
+                Sezon {!num.NumberOfSeason__c}
+             </lightning:button><br/>
+        </aura:iteration>
+
     </div>
 
 </aura:component>
