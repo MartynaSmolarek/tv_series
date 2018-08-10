@@ -2,14 +2,16 @@
  - Created by martyna.smolarek on 08.08.2018.
  -->
 
-<aura:component implements="flexipage:availableForAllPageTypes" access="global" controller="SerieControllerApex">
+<aura:component implements="flexipage:availableForAllPageTypes" access="global" controller="SeasonControllerApex">
 
     <aura:attribute name="hideSerie" type="Boolean" default="true" access="public"/>
     <aura:attribute name="hideSeason" type="Boolean" default="true" access="public"/>
     <aura:attribute name="hideEpisode" type="Boolean" default="true" access="public"/>
 
     <aura:attribute name="serie" type="TV_Serie__c" />
+    <aura:attribute name="numOfSeason" type="List"/>
 
+    <aura:attribute name="oneSeason" type="Season__c"/>
 
     <!--<aura:attribute name="series" type="List" />-->
 
@@ -19,43 +21,45 @@
     <!-- robie odnosnik do sezonu, a sezony robie jako osobny komponent -->
     <!-- w komponencie sezony robie odnosnik do odcinkow, a odcinki jako osobny komponent -->
 
-
-
-    <div class="nameSerie">
-            <p>
-                Name:
-                <!-- tu odwolac sie do tego name z allAboutTvSerieController.js -->
-                {!v.serie.Name}
-
-            </p>
-        <div>
+    <div class="slds-grid">
+       <div class="nameSerie"><p>Name: {!v.serie.Name}</p></div>
+        <div class="modifyBtn">
             <lightning:button variant="brand" label="Modify" onclick="{!c.modify}"> Modify </lightning:button>
         </div>
     </div>
+    <br/>
     <div class="logoSerie">
+       <img src="{!v.serie.Photo_URL__c}" alt="Image" style="height:350px; width:250px;" border="1"/>
+    </div>
+    <br/>
+    <div class="descriptionSerie">
         <p>
-            Logo:
-
+            Description:
+        </p>
+        <p>
+            {!v.serie.Description__c}
         </p>
     </div>
+    <br/>
     <div class="trailerSerie">
             <p>
                 Trailer:
             </p>
+            <p>
+                <iframe width="480" height="360" src="{!v.serie.Trailer__c}"></iframe>
+            </p>
     </div>
-
+    <br/><br/>
     <div class="seasonSerie">
-    <lightning:button variant="base" label="Go seasons" onclick="{!c.viewSeasons}" >
+    <lightning:button iconName="utility:down" iconPosition="right" variant="bare" onclick="{!c.viewSeasons}" >
         Seasons
     </lightning:button>
-</div>
-
-
+    </div>
 
     <aura:if isTrue="{!!v.hideSeason}">
-            <c:Season hideSeason="{!v.hideSeason}"/>
-                <aura:if isTrue="{!v.hideEpisode}">
-                    <c:Episode hideEpisode="{!v.hideEpisode}"/>
+            <c:Season hideSeason="{!v.hideSeason}" numOfSeason="{!v.numOfSeason}" oneSeason="{!v.oneSeason}" serie="{!v.serie}"/>
+                <aura:if isTrue="{!!v.hideEpisode}">
+                    <c:Episode hideEpisode="{!v.hideEpisode}" numOfSeason="{!v.numOfSeason}" />
                 </aura:if>
     </aura:if>
 
