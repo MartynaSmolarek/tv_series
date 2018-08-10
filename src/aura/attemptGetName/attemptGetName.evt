@@ -1,0 +1,7 @@
+<!--
+ - Created by martyna.smolarek on 10.08.2018.
+ -->
+
+<aura:event type="COMPONENT">
+    <aura:attribute name="infoName" type="Object"/>
+</aura:event>
