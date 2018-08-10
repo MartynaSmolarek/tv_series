@@ -1,0 +1,7 @@
+<!--
+ - Created by martyna.smolarek on 10.08.2018.
+ -->
+
+<aura:component description="oneEpisode">
+    <p> tu bedzie sie wyswietlac film </p>
+</aura:component>
