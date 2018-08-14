@@ -4,7 +4,7 @@
 
 <aura:component implements="flexipage:availableForAllPageTypes" access="global" controller="ShowTvSeries">
 
-<!-- *************************************** naglowek *************************************** -->
+    <!-- *************************************** naglowek *************************************** -->
 
     <aura:attribute name="hideAll" type="Boolean" default="false" access="public"/>
     <aura:attribute name="hideSerie" type="Boolean" default="true" access="public"/>
@@ -18,11 +18,11 @@
 
     <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
 
-<!-- ********************* wszystko do eventu z dolu *************************************** -->
+    <!-- ********************* wszystko do eventu z dolu *************************************** -->
     <aura:attribute name="infoFromEvent" type="Object"/>
 
     <aura:handler name="cmpEvent" event="c:attemptGetName" action="{!c.handleComponentEvent}"/>
-<!-- ************************************************************ -->
+    <!-- ************************************************************ -->
 
     <div class="slds-grid" >
         <aura:if isTrue="{!v.hideAll}">
@@ -35,23 +35,23 @@
             </aura:set>
         </aura:if>
     </div> <br/>
-<!-- *************************************** koniec naglowka *************************************** -->
+    <!-- *************************************** koniec naglowka *************************************** -->
 
-<!-- ******************************** lista seriali lub konkretny serial *************************************** -->
+    <!-- ******************************** lista seriali lub konkretny serial *************************************** -->
 
     <!-- wyswietlam albo to albo to -->
     <!-- jesli hide jest true to sie wykona to co w srodku -->
     <aura:if isTrue="{!!v.hideAll}">
         <aura:if isTrue="{!!v.hideSerie}">
 
-            <c:Serie hideSerie = "{!v.hideSerie}"  serie="{!v.serie}" numOfSeason="{!v.numOfSeason}" oneSeason="{!v.oneSeason}"/>
+            <c:Serie hideSerie = "{!v.hideSerie}"  serie="{!v.serie}" numOfSeason="{!v.numOfSeason}" oneSeason="{!v.oneSeason}" infoFromEvent="{!v.infoFromEvent}"/>
 
             <aura:set attribute="else">
-                <c:TvSerieComponent  hideSerie="{!v.hideSerie}" hideAll="{!v.hideAll}" series="{!v.series}"  />
+                <c:TvSerieComponent  hideSerie="{!v.hideSerie}" hideAll="{!v.hideAll}" series="{!v.series}" serie="{!v.serie}"  />
             </aura:set>
         </aura:if>
 
 
     </aura:if>
-<!-- ************************ koniec listy seriali lub konkretnego serialu *************************************** -->
+    <!-- ************************ koniec listy seriali lub konkretnego serialu *************************************** -->
 </aura:component>

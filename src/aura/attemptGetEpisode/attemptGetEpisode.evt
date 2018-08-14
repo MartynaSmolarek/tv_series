@@ -1,0 +1,7 @@
+<!--
+ - Created by martyna.smolarek on 14.08.2018.
+ -->
+
+<aura:event type="COMPONENT" description="attemptGetEpisode">
+    <aura:attribute name="infoEpisode" type="Object"/>
+</aura:event>

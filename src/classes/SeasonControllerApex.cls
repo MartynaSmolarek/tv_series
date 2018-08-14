@@ -4,15 +4,16 @@
 
 public with sharing class SeasonControllerApex {
 
-    @AuraEnabled
+   /* @AuraEnabled
     public static List <Season__c> getSeasons(String tv_serie_id) {
+
         // tu odnosze sie do pol polaczonych relacja master-detail
         List <Season__c> aboutSeasons =  [SELECT Name, NumberOfSeason__c, TV_Serie_Relation__c FROM Season__c WHERE TV_Serie_Relation__c =: tv_serie_id ORDER BY Name ASC];
 
-        if (aboutSeasons == null)
+        if (aboutSeasons.size() == 0)
         {
             System.debug('lista pusta');
         }
         return aboutSeasons;
-    }
+    }*/
 }

@@ -4,7 +4,6 @@
 ({
     getName: function (component, event, helper) {
             /*var action = component.get('c.getNameOfSerie');
-
             action.setCallback(this, function(response) {
                 var state = response.getState();
                 if (state === "SUCCESS") {
@@ -16,6 +15,13 @@
                 }
             });
             $A.enqueueAction(action);*/
+    },
+
+    handleComponentEvent: function (component, event) {
+        var inf = event.getParam("infoSeason");
+        console.log("wyswietlam inf z serieController: ",inf);
+
+        component.set("v.oneSeason", inf);
     },
 
 

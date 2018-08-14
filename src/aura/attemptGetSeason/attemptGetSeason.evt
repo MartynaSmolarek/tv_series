@@ -1,0 +1,7 @@
+<!--
+ - Created by martyna.smolarek on 13.08.2018.
+ -->
+
+<aura:event type="COMPONENT" description="attemptGetSeason">
+    <aura:attribute name="infoSeason" type="Object"/>
+</aura:event>

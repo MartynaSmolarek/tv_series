@@ -4,15 +4,17 @@
 
 public with sharing class EpisodeControllerApex {
 
-    @AuraEnabled
+    /*@AuraEnabled
     public static List <Episode__c> getEpisodes(String season_id) {
-        // tu odnosze sie do pol polaczonych relacja master-detail
-        List <Episode__c> aboutEpisodes =  [SELECT Name, Episode_Number__c, Season__c, Title__c, Story__c FROM Episode__c WHERE Season__c =: season_id ORDER BY Name ASC];
 
-        if (aboutEpisodes == null)
+        System.debug('season_id: ' + season_id);
+        List <Episode__c> aboutEpisodes =  [SELECT Name, Episode_Number__c, Season__c, Title__c, Story__c FROM Episode__c WHERE Season__c =: season_id ORDER BY Name ASC];
+//
+        if (aboutEpisodes.size() == 0)
         {
             System.debug('lista pusta');
         }
+
         return aboutEpisodes;
-    }
+    }*/
 }
