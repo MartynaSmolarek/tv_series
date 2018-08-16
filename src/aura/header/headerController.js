@@ -3,9 +3,15 @@
  */
 ({
     // przycisk do dodawania nowej tv serie
-    addNew : function (cmp, event, helper) {
-         alert("You clicked: " + event.getSource().get("v.label"));
+    addNew : function (component, event, helper) {
+         //tu powinno otworzyc sie 'nowe okno' w ktorym bylby formularz do wypelnienia. potem tam znow klik zeby zrobic update
+         //component.set("v.hideNewSerie", false);
+         component.set("v.hideAll", true);
+         console.log("jestem w addNew");
+
     },
+
+
 
     // pole do wyszukiwania
     handleKeyUp: function (cmp, evt) {
@@ -16,13 +22,15 @@
         }
     },
 
-        /*searchKeyChange: function(component, event) {
+       /* searchKeyChange: function(component, event) {
                 window.location.hash = event.target.value;
         },
+
         locationChange: function(component, event) {
                 var token = event.getParam("token") || "";
         		component.set("v.searchKey", token);
         },
+
         clearText: function(component) {
                 window.location.hash = "";
         }*/

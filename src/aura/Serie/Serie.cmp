@@ -22,6 +22,7 @@
 
 
     <aura:attribute name="infoFromEvent" type="Object"/>
+    <aura:attribute name="saveFromEvent" type="Object"/>
     <aura:handler name="seasonEvent" event="c:attemptGetSeason" action="{!c.handleComponentEvent}"/>
 
 
@@ -80,14 +81,6 @@
         </aura:iteration>
         </aura:if>
 
-
-
-        <!--<aura:if isTrue="{!!v.hideEpisode}">
-            <aura:iteration items="{!v.numOfEpisodes}" var="numE">
-                gdfdf
-                <c:Episode hideEpisode="{!v.hideEpisode}" numOfSeason="{!v.numOfSeason}" numOfEpisodes="{!v.numOfEpisodes}" oneEpisode="{!numE}" oneSeason="{!v.oneSeason}"/>
-            </aura:iteration>
-        </aura:if>-->
 
     </aura:if>
 

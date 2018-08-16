@@ -15,8 +15,12 @@
 
     // przycisk do usuwania tv serie
     deleteSerie: function (component, event, helper) {
-        event.preventDefault();
-        var serieName = event.target.getElementsByClassName (' serie-name')[0].value;
-        confirm('Delete the' + serieName + '?');
+        console.log("jestem w deleteSerie allAbout.. controller");
+        var tvSerie = component.get("v.serie");
+        console.log("tvSerie:", tvSerie);
+        var delEvent = component.getEvent("deleteSerieEvent");
+        console.log(delEvent); // tu jest jakis obiekt N(?)
+        if(confirm('Delete the ' + tvSerie.Name + '?'))
+           delEvent.setParams({"serieToDel" : tvSerie}).fire();
     },
 })

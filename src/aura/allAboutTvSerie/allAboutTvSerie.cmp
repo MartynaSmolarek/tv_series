@@ -10,6 +10,9 @@
 
     <aura:registerEvent name="cmpEvent" type="c:attemptGetName"/>
 
+    <aura:registerEvent name="deleteSerieEvent" type="c:deleteEvent"/>
+
+
 
     <table class="slds-table slds-table_bordered slds-table_striped slds-table_cell-buffer slds-table_fixed-layout">
 
@@ -25,9 +28,9 @@
             </td>
             <td><div class="slds-truncate" title="{!v.serie.Description}">{!v.serie.Description__c}</div></td>'
             <td>
-                <form class="series-form" onsubmit="{!c.deleteSerie}">
+                <form class="series-form" >
                     <input type="hidden" value="{!v.serie.Name}" class="serie-name" />
-                    <lightning:button label="Delete" iconName="utility:delete" iconPosition="left"  variant="destructive" type="submit"/>
+                    <lightning:button label="Delete" iconName="utility:delete" iconPosition="left"  variant="destructive" type="button" onclick="{!c.deleteSerie}"/>
                 </form>
             </td>
 

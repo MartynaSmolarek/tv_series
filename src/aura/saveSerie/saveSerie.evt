@@ -1,0 +1,7 @@
+<!--
+ - Created by martyna.smolarek on 16.08.2018.
+ -->
+
+<!--<aura:event type="COMPONENT" description="saveSerie">
+    <aura:attribute name="toSaveSerie" type="TV_Serie__c"/>
+</aura:event>-->

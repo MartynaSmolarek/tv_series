@@ -1,0 +1,76 @@
+<!--
+ - Created by martyna.smolarek on 16.08.2018.
+ -->
+
+<aura:component implements="flexipage:availableForAllPageTypes" access="global" controller="ShowTvSeries">
+    <aura:attribute name="hideNewSerie" type="Boolean" default="true" access="public"/>
+    <aura:attribute name="hideAll" type="Boolean" default="false" access="public"/>
+    <aura:attribute name="series" type="List" />
+    <aura:attribute name="serie" type="TV_Serie__c"/>
+
+    <aura:attribute name="newSerie" type="TV_Serie__c"
+
+                    default="{ 'sobjectType': 'TV_Serie__c',
+                        'Name': '',
+                        'Description__c': '',
+                        'Photo_URL__c': '',
+                        'Date_Premiere__c': '',
+                        'Trailer__c': ''}"/>
+
+    <!--<aura:registerEvent name="saveSerieEvent" type="c:saveSerie"/>-->
+
+    <lightning:layout>
+        <lightning:layoutItem padding="around-small" size="8">
+    <!-- CREATE NEW EXPENSE -->
+    <div aria-labelledby="newserieform">
+        <!-- BOXED AREA -->
+        <fieldset class="slds-box slds-theme--default slds-container--small">
+            <legend id="newserieform" class="slds-text-heading--small
+          slds-p-vertical--medium">
+                Add TV Serie
+            </legend>
+
+            <!-- CREATE NEW EXPENSE FORM -->
+            <form class="slds-form--stacked">
+                <lightning:input aura:id="serieform" label="TV Serie Name"
+                                 name="seriename"
+                                 value="{!v.newSerie.Name}"
+                                 required="true"/>
+                <lightning:input type="text" aura:id="serieform" label="Description"
+                                 name="seriedescription"
+                                 value="{!v.newSerie.Description__c}"/>
+                <lightning:input type="url" aura:id="serieform" label="Logo"
+                                 name="serielogo"
+                                 value="{!v.newSerie.Photo_URL__c}"
+                                 placeholder="Enter valid URL here"/>
+                <lightning:input type="url" aura:id="serieform" label="Trailer"
+                                 name="serietrailer"
+                                 value="{!v.newSerie.Trailer__c}"
+                                 placeholder="Enter valid URL here"/>
+                <lightning:input type="date" aura:id="serieform" label="Premiere Date"
+                                 name="seriename"
+                                 value="{!v.newSerie.Premiere_Date__c}" />
+               <!-- <lightning:select aura:id="serieform" label="Rate"
+                                  name="serieRate">
+                    <option value="">Choose a flavor...</option>
+                    <option value="vanilla">Vanilla</option>
+                    <option value="chocolate">Chocolate</option>
+                    <option value="strawberry">Strawberry</option>
+                </lightning:select>-->
+
+                <lightning:button label="Create TV Serie"
+                                  class="slds-m-top--medium"
+                                  variant="brand"
+                                  onclick="{!c.clickCreate}"/>
+            </form>
+
+            <!-- / CREATE NEW EXPENSE FORM -->
+
+        </fieldset>
+        <!-- / BOXED AREA -->
+    </div>
+    <!-- / CREATE NEW EXPENSE -->
+   </lightning:layoutItem>
+    </lightning:layout>
+
+</aura:component>

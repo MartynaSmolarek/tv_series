@@ -23,15 +23,19 @@
 
     <aura:handler name="cmpEvent" event="c:attemptGetName" action="{!c.handleComponentEvent}"/>
     <!-- ************************************************************ -->
+<!--    <aura:handler name="saveSerieEvent" event="c:saveSerie" action="{!c.saveEvent}"/>
+    <aura:attribute name="saveFromEvent" type="Object"/>-->
+
+
 
     <div class="slds-grid" >
-        <aura:if isTrue="{!v.hideAll}">
+        <aura:if isTrue="{!!v.hideAll}">
             <div class="header"><img src="{!$Resource.logo}"/></div>
+            <c:header hideAll="{!v.hideAll}"/>
 
             <aura:set attribute="else">
                 <!-- wyswietl c:header tylko na stronie glownej aplikacji -->
                 <div class="header"><img src="{!$Resource.logo}"/></div>
-                <c:header/>
             </aura:set>
         </aura:if>
     </div> <br/>
@@ -44,12 +48,21 @@
     <aura:if isTrue="{!!v.hideAll}">
         <aura:if isTrue="{!!v.hideSerie}">
 
-            <c:Serie hideSerie = "{!v.hideSerie}"  serie="{!v.serie}" numOfSeason="{!v.numOfSeason}" oneSeason="{!v.oneSeason}" infoFromEvent="{!v.infoFromEvent}"/>
+            <c:Serie hideSerie = "{!v.hideSerie}" saveFromEvent="{!v.saveFromEvent}" serie="{!v.serie}" numOfSeason="{!v.numOfSeason}" oneSeason="{!v.oneSeason}" infoFromEvent="{!v.infoFromEvent}"/>
 
             <aura:set attribute="else">
-                <c:TvSerieComponent  hideSerie="{!v.hideSerie}" hideAll="{!v.hideAll}" series="{!v.series}" serie="{!v.serie}"  />
+                <c:TvSerieComponent  hideSerie="{!v.hideSerie}" hideAll="{!v.hideAll}" series="{!v.series}" serie="{!v.serie}"/>
             </aura:set>
         </aura:if>
+
+        <aura:set attribute="else">
+            <aura:if isTrue="{!!v.hideNewSerie}">
+                <c:newSerie hideNewSerie="{!v.hideNewSerie}" hideAll="{!v.hideAll}" series="{!v.series}" serie="{!v.serie}" />
+                <aura:set attribute="else">
+                    du[adupa
+                </aura:set>
+            </aura:if>
+        </aura:set>
 
 
     </aura:if>

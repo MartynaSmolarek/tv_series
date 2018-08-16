@@ -2,7 +2,7 @@
  - Created by martyna.smolarek on 08.08.2018.
  -->
 
-<aura:component implements="flexipage:availableForAllPageTypes" access="global">
+<aura:component implements="flexipage:availableForAllPageTypes" access="global" controller="ShowTvSeries">
 
     <aura:attribute name="series" type="List" />
     <aura:attribute name="serie" type="TV_Serie__c" />
@@ -10,7 +10,11 @@
     <aura:attribute name="hideAll" type="Boolean" default="false" access="public"/>
     <aura:attribute name="hideSerie" type="Boolean" default="true" access="public"/>
 
-<!-- *************************************** naglowek *************************************** -->
+    <aura:handler name="deleteSerieEvent" event="c:deleteEvent" action="{!c.delEvent}"/>
+
+
+
+    <!-- *************************************** naglowek *************************************** -->
 
      <div class="list">
         List of TV Series
@@ -29,7 +33,7 @@
     </table>
 
     <aura:iteration items="{!v.series}" var="serie">
-        <c:allAboutTvSerie serie="{!serie}" hideAll="{!v.hideAll}" hideSerie="{!v.hideSerie}"/>
+        <c:allAboutTvSerie serie="{!serie}" hideAll="{!v.hideAll}" hideSerie="{!v.hideSerie}" />
     </aura:iteration>
 
 <!-- *************************************** koniec listy seriali *************************************** -->
